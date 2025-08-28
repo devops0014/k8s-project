@@ -30,6 +30,15 @@ export const Game = (props) => {
                 <button onClick={tetris.resume} className={`${styles.btn} ${styles.btnNew}`}>Resume</button>
         }
     }
+    if (state.isStarted()) {
+        if (state.isRunning()) {
+            resumePauseButton =
+                <button onClick={tetris.pause} className={`${styles.btn} ${styles.btnPause}`}>Pause</button>
+        } else {
+            resumePauseButton =
+                <button onClick={tetris.resume} className={`${styles.btn} ${styles.btnNew}`}>Resume</button>
+        }
+    }
 
 
     const matrix = createMatrix(state.visibleMatrix(), styles);
